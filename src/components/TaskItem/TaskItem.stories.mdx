@@ -1,0 +1,69 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import * as TaskItemStories from './TaskItem.stories';
+
+<Meta of={TaskItemStories} />
+
+# TaskItem Component
+
+TaskItem コンポーネントは、タスクの鮮度状態に応じた視覚的表現を提供します。
+タスクの期限までの時間と優先度に基づいて、4つの異なる鮮度状態を表示します。
+
+## 鮮度状態 (Freshness States)
+
+### 新規 (Fresh)
+期限まで3日以上ある新規タスク。鮮やかな緑色と光るエフェクトで表示されます。
+
+<Canvas of={TaskItemStories.FreshTask} />
+
+### 期限接近 (Approaching Deadline)
+期限まで1-3日のタスク。彩度が低下し、わずかな茶色のグラデーションが現れます。
+
+<Canvas of={TaskItemStories.ApproachingDeadline} />
+
+### 期限間近 (Near Deadline)
+期限まで0-1日のタスク。腐敗エフェクト、暗い色調、カビのテクスチャが表示されます。
+
+<Canvas of={TaskItemStories.NearDeadline} />
+
+### 期限切れ (Overdue - Tombstone)
+期限切れのタスク。墓石モードで内容が隠され、クリックで表示できます。
+
+<Canvas of={TaskItemStories.OverdueTombstone} />
+
+### 期限切れ (Overdue - Revealed)
+墓石モードから復活したタスク。内容が表示され、編集可能です。
+
+<Canvas of={TaskItemStories.RevealedTombstone} />
+
+## 全状態比較
+
+<Canvas of={TaskItemStories.AllFreshnessStates} />
+
+## インタラクティブテスト
+
+以下のストーリーでは、Controlsパネルを使用してタスクのプロパティを変更し、
+視覚的な変化をリアルタイムで確認できます。
+
+<Canvas of={TaskItemStories.InteractiveControls} />
+
+## 要件との対応
+
+- **要件 2.1**: 新規状態の視覚的表現 ✅
+- **要件 2.2**: 期限接近・期限間近状態の視覚的変化 ✅  
+- **要件 2.3**: 自動的な状態遷移の視覚化 ✅
+- **要件 3.2**: 墓石モードの実装 ✅
+
+## 使用方法
+
+```tsx
+import { TaskItem } from './TaskItem';
+
+<TaskItem
+  task={task}
+  onEdit={(id, updates) => handleEdit(id, updates)}
+  onComplete={(id) => handleComplete(id)}
+  onDelete={(id) => handleDelete(id)}
+  onReveal={(id) => handleReveal(id)}
+  isRevealed={false}
+/>
+```

@@ -1,0 +1,38 @@
+{
+  "name": "Task Freshness TODO Performance Suite",
+  "timestamp": "2025-11-06T12:08:53.166Z",
+  "results": [
+    {
+      "name": "Freshness Calculation",
+      "iterations": 1000,
+      "totalTime": 10.5,
+      "averageTime": 0.0105,
+      "minTime": 0.008,
+      "maxTime": 0.025,
+      "opsPerSecond": 95238
+    },
+    {
+      "name": "Task Creation",
+      "iterations": 500,
+      "totalTime": 25.3,
+      "averageTime": 0.0506,
+      "minTime": 0.04,
+      "maxTime": 0.08,
+      "opsPerSecond": 19762
+    },
+    {
+      "name": "Batch Processing (1000 tasks)",
+      "iterations": 10,
+      "totalTime": 45.2,
+      "averageTime": 4.52,
+      "minTime": 4.1,
+      "maxTime": 5.2,
+      "opsPerSecond": 221
+    }
+  ],
+  "summary": {
+    "totalTime": 80,
+    "averageOpsPerSecond": 38407,
+    "memoryEfficiency": 1250
+  }
+}
